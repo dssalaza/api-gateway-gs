@@ -28,7 +28,7 @@ Resources:
     Properties:
       Handler: findByNfcId.handler
       Runtime: python3.6
-      FunctionName: findByNfcId91
+#      FunctionName: findByNfcId91
       Description: return an nfcId
       Role:
         Fn::GetAtt:
@@ -39,7 +39,7 @@ Resources:
     Properties:
       Handler: getByDate.handler
       Runtime: python3.6
-      FunctionName: getByDate91
+#      FunctionName: getByDate91
       Description: return elements by date
       Role:
         Fn::GetAtt:
