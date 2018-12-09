@@ -29,7 +29,11 @@ Resources:
       Handler: findByNfcId.handler
       Runtime: python3.6
       FunctionName: findByNfcId91
-      Description: return an nfcId	
+      Description: return an nfcId
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
   getByDate:
     Type: AWS::Serverless::Function
     Properties:
@@ -37,3 +41,22 @@ Resources:
       Runtime: python3.6
       FunctionName: getByDate91
       Description: return elements by date
+      Role:
+        Fn::GetAtt:
+        - LambdaExecutionRole
+        - Arn
+  LambdaExecutionRole:
+    Description: Creating service role in IAM for AWS Lambda
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'CodeStar-${ProjectId}-Execution${Stage}'
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: [lambda.amazonaws.com]
+          Action: sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        -  arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/CodeStar_${ProjectId}_PermissionsBoundary'
