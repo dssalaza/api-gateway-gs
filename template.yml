@@ -29,7 +29,7 @@ Resources:
       Handler: findByNfcId.handler
       Runtime: python3.6
       FunctionName: findByNfcId-prod
-      Description: return an nfcId
+      Description: return a nfcId
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
