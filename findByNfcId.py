@@ -4,7 +4,7 @@ import datetime
 
 def handler(event, context):
     data = {
-        'output': 'Hello World, how are you? findByNfcId1',
+        'output': 'Hello World, how are you? findByNfcId2',
         'timestamp': datetime.datetime.utcnow().isoformat()
     }
     return {'statusCode': 200,
