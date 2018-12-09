@@ -1,5 +1,5 @@
 import unittest
-import index
+import findByNfcId
 
 
 class TestHandlerCase(unittest.TestCase):
