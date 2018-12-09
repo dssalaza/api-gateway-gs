@@ -28,6 +28,8 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: python3.6
+      FunctionName: findByNfcIdDssv
+      Description: findByNfcIdDssv will return an nfcId
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole
